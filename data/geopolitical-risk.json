@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-08-22",
+  "refresh_status": "ok",
+  "source_note": "Official U.S. government material-trade notices and active maritime advisories, checked daily.",
+  "caveat": "Headlines identify public risk signals; they are not forecasts, legal advice, or supplier commitments.",
+  "signals": [
+    {
+      "id": "marad-2026-010",
+      "topic": "maritime",
+      "topic_label": "Maritime Route",
+      "title": "2026-010-Gulf of Aden, Arabian Sea, Indian Ocean-Piracy/Armed Robbery/Kidnapping for Ransom",
+      "published_date": null,
+      "source": "U.S. Maritime Advisory System",
+      "source_url": "https://www.maritime.dot.gov/msci/2026-010-gulf-aden-arabian-sea-indian-ocean-piracyarmed-robberykidnapping-ransom",
+      "summary": "Active official U.S. maritime advisory relevant to global freight routes.",
+      "source_type": "official"
+    },
+    {
+      "id": "marad-2026-006",
+      "topic": "maritime",
+      "topic_label": "Maritime Route",
+      "title": "2026-006-Red Sea, Bab el Mandeb Strait, Gulf of Aden, Arabian Sea, and Somali Basin-Houthi Attacks on Commercial Vessels",
+      "published_date": null,
+      "source": "U.S. Maritime Advisory System",
+      "source_url": "https://www.maritime.dot.gov/msci/2026-006-red-sea-bab-el-mandeb-strait-gulf-aden-arabian-sea-and-somali-basin-houthi-attacks",
+      "summary": "Active official U.S. maritime advisory relevant to global freight routes.",
+      "source_type": "official"
+    },
+    {
+      "id": "federal-register-2026-17155",
+      "topic": "material_trade",
+      "topic_label": "Trade + Material",
+      "title": "Agency Information Collection Activities; Submission to the Office of Management and Budget (OMB) for Review and Approval; Comment Request; Procedures for Submissions by Certain Steel and Aluminum Producers Committing to New U.S. Steel or Aluminum Production To Obtain Tariff Adjustments Under Proclamation 10984",
+      "published_date": "2026-08-21",
+      "source": "Federal Register \u00b7 International Trade Administration",
+      "source_url": "https://www.federalregister.gov/documents/2026/08/21/2026-17155/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for",
+      "summary": "for the adjusted tariffs , as authorized in Proclamation 10984, based on the quantities of aluminum or steel equal to newly committed U.S. production capacity. The Secretary has determined that only increased commitments to produce\u2026",
+      "source_type": "official"
+    },
+    {
+      "id": "federal-register-2026-16759",
+      "topic": "energy_supply",
+      "topic_label": "Energy + Supply",
+      "title": "Delegation of Authority to the Assistant Secretary of Economic, Energy, and Business Affairs To Review and Deny Requests for Reconsideration of Sanctions Designations",
+      "published_date": "2026-08-17",
+      "source": "Federal Register \u00b7 State Department",
+      "source_url": "https://www.federalregister.gov/documents/2026/08/17/2026-16759/delegation-of-authority-to-the-assistant-secretary-of-economic-energy-and-business-affairs-to-review",
+      "summary": "States, including 22 U.S.C. 2651a(a)(4), I hereby delegate to the Assistant Secretary for Economic, Energy , and Business Affairs (EEB), to the extent authorized by law, the authority to review and deny requests for reconsideration of\u2026",
+      "source_type": "official"
+    }
+  ],
+  "source_status": [
+    {
+      "source": "U.S. Maritime Advisory System",
+      "status": "ok",
+      "url": "https://www.maritime.dot.gov/msci-advisories"
+    },
+    {
+      "source": "Federal Register",
+      "topic": "material_trade",
+      "status": "ok",
+      "url": "https://www.federalregister.gov/api/v1/documents.json"
+    },
+    {
+      "source": "Federal Register",
+      "topic": "energy_supply",
+      "status": "ok",
+      "url": "https://www.federalregister.gov/api/v1/documents.json"
+    }
+  ]
+}
