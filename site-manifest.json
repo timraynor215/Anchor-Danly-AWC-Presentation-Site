@@ -1,0 +1,12 @@
+{
+  "built_at": "2026-09-05T16:07:41+00:00",
+  "entrypoint": "index.html",
+  "publication_model": "runtime-only",
+  "excluded_private_content": [
+    "repository history",
+    "automation scripts and workflows",
+    "documentation and handoff notes",
+    "Anchor Danly and AWC source-image libraries",
+    "editable CAD and CAD-generation files"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "generated_at": "2026-09-05",
+  "source_family": "Public mill price-list and pricing-announcement snapshots",
+  "caveat": "Pricing snapshots are public references only and are not executable supplier quotes.",
+  "snapshots": [
+    {
+      "id": "nucor_yamato_price_list",
+      "producer": "Nucor-Yamato",
+      "label": "Nucor-Yamato Price List",
+      "category": "Wide flange, H-pile, and standard sections",
+      "source_url": "https://nucoryamato.com/staticdata/pricelist.pdf",
+      "source_status": "parsed_pdf",
+      "published_date": "2026-08-03",
+      "published_label": "August 3, 2026",
+      "replaces_date": "2026-06-08",
+      "summary": "Current ASTM A992 / A572-50 transaction price list; pricing includes RMS surcharge per hundred weight."
+    },
+    {
+      "id": "sdi_columbia_city_beam_price_list",
+      "producer": "Steel Dynamics",
+      "label": "SDI Columbia City Beam Price List",
+      "category": "Structural beams",
+      "source_url": "https://lpg.steeldynamics.com/pdf/Columbia-City/Pricing/Beam-Price-List.pdf",
+      "source_status": "parsed_pdf",
+      "published_date": "2026-08-03",
+      "published_label": "August 3, 2026",
+      "summary": "Current public Columbia City beam price-list snapshot used for presentation pricing-source freshness."
+    },
+    {
+      "id": "gerdau_merchants_beams_price_announcement",
+      "producer": "Gerdau",
+      "label": "Gerdau Merchants and Beams Pricing Announcement",
+      "category": "Beams / merchant / structural shapes",
+      "source_url": "https://www2.gerdau.com/sites/gln_gerdau/files/downloadable_files/Gerdau%20Price%20Announcement%20-%20Merchants%20and%20Beams%20-%20August%202026_0.pdf",
+      "source_status": "parsed_pdf",
+      "published_date": "2026-08-03",
+      "published_label": "August 3, 2026",
+      "effective_date": "2026-08-03",
+      "change_amount": 50,
+      "unit": "USD per net ton",
+      "cwt_change_amount": 2.5,
+      "change_tiers": [
+        {
+          "category": "Wide flange beams, standard beams, miscellaneous beams, and piling",
+          "cwt_change_amount": 2.5,
+          "change_amount": 50,
+          "unit": "USD per net ton"
+        },
+        {
+          "category": "Select angle and channel products",
+          "cwt_change_amount": 4.0,
+          "change_amount": 80,
+          "unit": "USD per net ton"
+        }
+      ],
+      "summary": "Gerdau announced pricing increases effective August 3, 2026: Wide flange beams, standard beams, miscellaneous beams, and piling +$50 per net ton; Select angle and channel products +$80 per net ton."
+    }
+  ],
+  "portals": [
+    {
+      "id": "gerdau_rolling_portal",
+      "label": "Gerdau Rolling Schedule Portal",
+      "source_url": "http://www.egerdau.com/eGerdaustorefront/rolling",
+      "source_status": "portal_only",
+      "summary": "Gerdau rolling-schedule access is routed through the eGerdau storefront portal."
+    }
+  ]
+}
