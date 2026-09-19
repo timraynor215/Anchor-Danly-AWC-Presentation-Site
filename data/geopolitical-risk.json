@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-09-19",
+  "refresh_status": "ok",
+  "source_note": "Official U.S. government material-trade notices and active maritime advisories, checked daily.",
+  "caveat": "Headlines identify public risk signals; they are not forecasts, legal advice, or supplier commitments.",
+  "signals": [
+    {
+      "id": "marad-2026-011",
+      "topic": "maritime",
+      "topic_label": "Maritime Route",
+      "title": "2026-011-Persian Gulf, Strait of Hormuz and Gulf of Oman-Iranian Attacks on Commercial Vessels",
+      "published_date": null,
+      "source": "U.S. Maritime Advisory System",
+      "source_url": "https://www.maritime.dot.gov/msci/2026-011-persian-gulf-strait-hormuz-and-gulf-oman-iranian-attacks-commercial-vessels",
+      "summary": "Active official U.S. maritime advisory relevant to global freight routes.",
+      "source_type": "official"
+    },
+    {
+      "id": "marad-2026-010",
+      "topic": "maritime",
+      "topic_label": "Maritime Route",
+      "title": "2026-010-Gulf of Aden, Arabian Sea, Indian Ocean-Piracy/Armed Robbery/Kidnapping for Ransom",
+      "published_date": null,
+      "source": "U.S. Maritime Advisory System",
+      "source_url": "https://www.maritime.dot.gov/msci/2026-010-gulf-aden-arabian-sea-indian-ocean-piracyarmed-robberykidnapping-ransom",
+      "summary": "Active official U.S. maritime advisory relevant to global freight routes.",
+      "source_type": "official"
+    },
+    {
+      "id": "federal-register-2026-19107",
+      "topic": "material_trade",
+      "topic_label": "Trade + Material",
+      "title": "Carbon and Alloy Steel Wire Rod From Algeria: Final Affirmative Countervailing Duty Determination and Countervailing Duty Order",
+      "published_date": "2026-09-18",
+      "source": "Federal Register \u00b7 International Trade Administration",
+      "source_url": "https://www.federalregister.gov/documents/2026/09/18/2026-19107/carbon-and-alloy-steel-wire-rod-from-algeria-final-affirmative-countervailing-duty-determination-and",
+      "summary": "The U.S. Department of Commerce (Commerce) determines that countervailable subsidies are being provided to producers and exporters of carbon and alloy steel wire rod (wire rod) from Algeria. The period of investigation (POI) is January 1,\u2026",
+      "source_type": "official"
+    },
+    {
+      "id": "federal-register-2026-19066",
+      "topic": "energy_supply",
+      "topic_label": "Energy + Supply",
+      "title": "National Fuel Gas Supply Corporation; Notice of Request Under Blanket Authorization and Establishing Intervention and Protest Deadline",
+      "published_date": "2026-09-17",
+      "source": "Federal Register \u00b7 Federal Energy Regulatory Commission",
+      "source_url": "https://www.federalregister.gov/documents/2026/09/17/2026-19066/national-fuel-gas-supply-corporation-notice-of-request-under-blanket-authorization-and-establishing",
+      "summary": "Take notice that on September 4, 2026, National Fuel Gas Supply Corporation (National Fuel), 6363 Main Street, Williamsville, New York 14221-5887, filed in the above referenced docket, a prior notice request pursuant to sections 157.205\u2026",
+      "source_type": "official"
+    }
+  ],
+  "source_status": [
+    {
+      "source": "U.S. Maritime Advisory System",
+      "status": "ok",
+      "url": "https://www.maritime.dot.gov/msci-advisories"
+    },
+    {
+      "source": "Federal Register",
+      "topic": "material_trade",
+      "status": "ok",
+      "url": "https://www.federalregister.gov/api/v1/documents.json"
+    },
+    {
+      "source": "Federal Register",
+      "topic": "energy_supply",
+      "status": "ok",
+      "url": "https://www.federalregister.gov/api/v1/documents.json"
+    }
+  ]
+}
