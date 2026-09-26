@@ -1,0 +1,72 @@
+{
+  "generated_at": "2026-09-26",
+  "refresh_status": "partial_preserved",
+  "source_note": "Official U.S. government material-trade notices and active maritime advisories, checked daily.",
+  "caveat": "Headlines identify public risk signals; they are not forecasts, legal advice, or supplier commitments.",
+  "signals": [
+    {
+      "id": "marad-2026-013",
+      "topic": "maritime",
+      "topic_label": "Maritime Route",
+      "title": "2026-013-Red Sea, Bab el Mandeb Strait, Gulf of Aden, Arabian Sea, and Somali Basin-Houthi Attacks on Commercial Vessels",
+      "published_date": null,
+      "source": "U.S. Maritime Advisory System",
+      "source_url": "https://www.maritime.dot.gov/msci/2026-013-red-sea-bab-el-mandeb-strait-gulf-aden-arabian-sea-and-somali-basin-houthi-attacks",
+      "summary": "Active official U.S. maritime advisory relevant to global freight routes.",
+      "source_type": "official"
+    },
+    {
+      "id": "marad-2026-012",
+      "topic": "maritime",
+      "topic_label": "Maritime Route",
+      "title": "2026-012-Black Sea and Sea of Azov-Military Combat Operations",
+      "published_date": null,
+      "source": "U.S. Maritime Advisory System",
+      "source_url": "https://www.maritime.dot.gov/msci/2026-012-black-sea-and-sea-azov-military-combat-operations",
+      "summary": "Active official U.S. maritime advisory relevant to global freight routes.",
+      "source_type": "official"
+    },
+    {
+      "id": "federal-register-2026-19811",
+      "topic": "material_trade",
+      "topic_label": "Trade + Material",
+      "title": "Tin Mill Products From China, Taiwan, and Turkey; Scheduling of the Final Phase of Countervailing Duty and Antidumping Duty Investigations",
+      "published_date": "2026-09-28",
+      "source": "Federal Register \u00b7 International Trade Commission",
+      "source_url": "https://www.federalregister.gov/documents/2026/09/28/2026-19811/tin-mill-products-from-china-taiwan-and-turkey-scheduling-of-the-final-phase-of-countervailing-duty",
+      "summary": "The Commission hereby gives notice of the scheduling of the final phase of antidumping and countervailing duty investigation Nos. 701-TA-792 and 731-TA-1786-1788 (Final) pursuant to the Tariff Act of 1930 to determine whether an industry\u2026",
+      "source_type": "official"
+    },
+    {
+      "id": "federal-register-2026-19066",
+      "topic": "energy_supply",
+      "topic_label": "Energy + Supply",
+      "title": "National Fuel Gas Supply Corporation; Notice of Request Under Blanket Authorization and Establishing Intervention and Protest Deadline",
+      "published_date": "2026-09-17",
+      "source": "Federal Register \u00b7 Federal Energy Regulatory Commission",
+      "source_url": "https://www.federalregister.gov/documents/2026/09/17/2026-19066/national-fuel-gas-supply-corporation-notice-of-request-under-blanket-authorization-and-establishing",
+      "summary": "Take notice that on September 4, 2026, National Fuel Gas Supply Corporation (National Fuel), 6363 Main Street, Williamsville, New York 14221-5887, filed in the above referenced docket, a prior notice request pursuant to sections 157.205\u2026",
+      "source_type": "official"
+    }
+  ],
+  "source_status": [
+    {
+      "source": "U.S. Maritime Advisory System",
+      "status": "ok",
+      "url": "https://www.maritime.dot.gov/msci-advisories"
+    },
+    {
+      "source": "Federal Register",
+      "topic": "material_trade",
+      "status": "ok",
+      "url": "https://www.federalregister.gov/api/v1/documents.json"
+    },
+    {
+      "source": "Federal Register",
+      "topic": "energy_supply",
+      "status": "failed_preserved",
+      "url": "https://www.federalregister.gov/api/v1/documents.json",
+      "error": "No relevant energy_supply Federal Register notices found"
+    }
+  ]
+}
