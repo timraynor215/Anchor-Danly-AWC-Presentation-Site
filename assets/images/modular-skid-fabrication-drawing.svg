@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" role="img" aria-labelledby="skidDwgTitle skidDwgDesc">
+  <title id="skidDwgTitle">Modular Skid Interface-Control Drawing</title>
+  <desc id="skidDwgDesc">Fabrication-style concept drawing of a modular skid base: plan view with frame rails, crossmembers, diagonal bracing, equipment mounting pads, and lifting lugs; side and end elevations with datum references and a parallelism callout; numbered balloons keyed to the six interface-control points.</desc>
+  <defs>
+    <pattern id="dwgGrid" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M44 0H0V44" fill="none" stroke="#426170" stroke-opacity=".15" stroke-width="1"/>
+    </pattern>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M0 1.4 10 5 0 8.6z" fill="#7eb3ce"/>
+    </marker>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif}
+      .geo{fill:none;stroke:#dce8ee;stroke-width:1.6}
+      .geo2{fill:none;stroke:#b8cdd8;stroke-width:1.05}
+      .band{fill:#0d6ca8;fill-opacity:.14}
+      .hid{fill:none;stroke:#7a99a9;stroke-width:1;stroke-dasharray:5 4}
+      .cl{fill:none;stroke:#6c8a99;stroke-width:1;stroke-dasharray:15 5 3 5;stroke-opacity:.75}
+      .dim{fill:none;stroke:#7eb3ce;stroke-width:1}
+      .ext{fill:none;stroke:#7eb3ce;stroke-width:.85;stroke-opacity:.8}
+      .dimt{fill:#a9c9db;font-size:10px;font-weight:700;letter-spacing:.05em}
+      .pad{fill:#e4a524;fill-opacity:.16;stroke:#ffc14d;stroke-width:1.6}
+      .hole{fill:#09141c;stroke:#ffc14d;stroke-width:1.4}
+      .lug{fill:#55c3de;fill-opacity:.12;stroke:#9fd8e8;stroke-width:1.6}
+      .lughole{fill:#09141c;stroke:#9fd8e8;stroke-width:1.4}
+      .datum{fill:#d99d24;stroke:#ffe09b;stroke-width:1}
+      .datumT{fill:#09141c;font-size:10px;font-weight:800;text-anchor:middle}
+      .balloon{fill:#0b1e2b;stroke:#e4a524;stroke-width:1.8}
+      .balloonT{fill:#f4c85a;font-size:9.5px;font-weight:800;text-anchor:middle;letter-spacing:.03em}
+      .lead{fill:none;stroke:#e4a524;stroke-width:1.1}
+      .fcf{fill:#09141c;fill-opacity:.55;stroke:#cfe0ea;stroke-width:1.1}
+      .fcfT{fill:#e8f1f5;font-size:10px;font-weight:700;text-anchor:middle}
+      .weld{fill:none;stroke:#e4a524;stroke-width:1.4}
+      .micro{fill:#91a9b5;font-size:9px;font-weight:600;letter-spacing:.06em}
+      .microGold{fill:#e4a524;font-size:9px;font-weight:700;letter-spacing:.08em}
+      .view{fill:#b9c9d2;font-size:10px;font-weight:800;letter-spacing:.1em}
+    </style>
+  </defs>
+  <rect width="880" height="440" fill="url(#dwgGrid)"/>
+
+  <text x="22" y="22" class="microGold">MODULAR SKID · INTERFACE-CONTROL DRAWING</text>
+  <text x="858" y="22" class="micro" text-anchor="end">CONCEPT · NTS · NOT FOR FABRICATION</text>
+
+  <!-- ======================= PLAN VIEW ======================= -->
+  <text x="96" y="58" class="view">PLAN VIEW</text>
+  <!-- centerlines -->
+  <line class="cl" x1="80" y1="149" x2="656" y2="149"/>
+  <line class="cl" x1="368" y1="54" x2="368" y2="246"/>
+  <!-- perimeter frame: outer + inner flange lines with tinted band -->
+  <path class="band" fill-rule="evenodd" d="M96 64H640V234H96zM106 74H630V224H106z"/>
+  <rect class="geo" x="96" y="64" width="544" height="170"/>
+  <rect class="geo2" x="106" y="74" width="524" height="150"/>
+  <!-- longitudinal center stringer -->
+  <line class="geo2" x1="106" y1="145" x2="630" y2="145"/>
+  <line class="geo2" x1="106" y1="153" x2="630" y2="153"/>
+  <!-- crossmembers -->
+  <g class="geo2">
+    <line x1="201" y1="74" x2="201" y2="224"/><line x1="209" y1="74" x2="209" y2="224"/>
+    <line x1="310" y1="74" x2="310" y2="224"/><line x1="318" y1="74" x2="318" y2="224"/>
+    <line x1="419" y1="74" x2="419" y2="224"/><line x1="427" y1="74" x2="427" y2="224"/>
+    <line x1="528" y1="74" x2="528" y2="224"/><line x1="536" y1="74" x2="536" y2="224"/>
+  </g>
+  <!-- diagonal bracing, end bays -->
+  <g class="geo2">
+    <line x1="106" y1="74" x2="201" y2="145"/>
+    <line x1="106" y1="224" x2="201" y2="153"/>
+    <line x1="630" y1="74" x2="536" y2="145"/>
+    <line x1="630" y1="224" x2="536" y2="153"/>
+  </g>
+  <!-- equipment mounting pads with bolt holes -->
+  <g>
+    <rect class="pad" x="239.5" y="97.5" width="40" height="24"/>
+    <circle class="hole" cx="247" cy="104.5" r="2.6"/><circle class="hole" cx="272" cy="104.5" r="2.6"/>
+    <circle class="hole" cx="247" cy="114.5" r="2.6"/><circle class="hole" cx="272" cy="114.5" r="2.6"/>
+    <rect class="pad" x="457.5" y="97.5" width="40" height="24"/>
+    <circle class="hole" cx="465" cy="104.5" r="2.6"/><circle class="hole" cx="490" cy="104.5" r="2.6"/>
+    <circle class="hole" cx="465" cy="114.5" r="2.6"/><circle class="hole" cx="490" cy="114.5" r="2.6"/>
+    <rect class="pad" x="239.5" y="176.5" width="40" height="24"/>
+    <circle class="hole" cx="247" cy="183.5" r="2.6"/><circle class="hole" cx="272" cy="183.5" r="2.6"/>
+    <circle class="hole" cx="247" cy="193.5" r="2.6"/><circle class="hole" cx="272" cy="193.5" r="2.6"/>
+    <rect class="pad" x="457.5" y="176.5" width="40" height="24"/>
+    <circle class="hole" cx="465" cy="183.5" r="2.6"/><circle class="hole" cx="490" cy="183.5" r="2.6"/>
+    <circle class="hole" cx="465" cy="193.5" r="2.6"/><circle class="hole" cx="490" cy="193.5" r="2.6"/>
+  </g>
+  <!-- corner lifting lugs -->
+  <g>
+    <rect class="lug" x="78" y="84" width="18" height="24" rx="2"/><circle class="lughole" cx="87" cy="96" r="4.5"/>
+    <rect class="lug" x="78" y="190" width="18" height="24" rx="2"/><circle class="lughole" cx="87" cy="202" r="4.5"/>
+    <rect class="lug" x="640" y="84" width="18" height="24" rx="2"/><circle class="lughole" cx="649" cy="96" r="4.5"/>
+    <rect class="lug" x="640" y="190" width="18" height="24" rx="2"/><circle class="lughole" cx="649" cy="202" r="4.5"/>
+  </g>
+  <!-- identification nameplate -->
+  <rect class="pad" x="588" y="225" width="26" height="8"/>
+
+  <!-- plan dimensions -->
+  <line class="ext" x1="205" y1="62" x2="205" y2="42"/>
+  <line class="ext" x1="314" y1="62" x2="314" y2="42"/>
+  <line class="dim" x1="205" y1="47" x2="314" y2="47" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text x="259" y="38" class="dimt" text-anchor="middle">EQ SP · TYP</text>
+  <line class="ext" x1="642" y1="64" x2="662" y2="64"/>
+  <line class="ext" x1="642" y1="234" x2="662" y2="234"/>
+  <line class="dim" x1="657" y1="64" x2="657" y2="234" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text x="666" y="152" class="dimt">W</text>
+
+  <!-- datum B: left end rail -->
+  <rect class="datum" x="42" y="142" width="14" height="14"/>
+  <text x="49" y="153" class="datumT">B</text>
+  <line class="lead" x1="56" y1="149" x2="88" y2="149"/>
+  <path class="datum" d="M96 149l-8 -4.6v9.2z"/>
+  <!-- datum C: front rail -->
+  <path class="datum" d="M300 234l-4.6 8h9.2z"/>
+  <line class="lead" x1="300" y1="242" x2="300" y2="252"/>
+  <rect class="datum" x="293" y="252" width="14" height="14"/>
+  <text x="300" y="263" class="datumT">C</text>
+
+  <!-- weld callout, crossmember-to-rail joint -->
+  <line class="weld" x1="423" y1="74" x2="448" y2="50"/>
+  <line class="weld" x1="448" y1="50" x2="500" y2="50"/>
+  <path class="weld" d="M456 50v12l12 -12z"/>
+  <text x="505" y="54" class="dimt">TYP</text>
+
+  <!-- ======================= BALLOONS (plan) ======================= -->
+  <line class="lead" x1="49" y1="135" x2="42" y2="126"/>
+  <circle class="balloon" cx="36" cy="117" r="11"/><text x="36" y="120.5" class="balloonT">01</text>
+  <line class="lead" x1="80" y1="90" x2="59" y2="80"/>
+  <circle class="balloon" cx="48" cy="76" r="11"/><text x="48" y="79.5" class="balloonT">04</text>
+  <line class="lead" x1="500" y1="50" x2="521" y2="43"/>
+  <circle class="balloon" cx="534" cy="39" r="11"/><text x="534" y="42.5" class="balloonT">03</text>
+  <line class="lead" x1="279.5" y1="109" x2="341" y2="111"/>
+  <circle class="balloon" cx="352" cy="111" r="11"/><text x="352" y="114.5" class="balloonT">05</text>
+  <line class="lead" x1="598" y1="224" x2="598" y2="183"/>
+  <circle class="balloon" cx="598" cy="172" r="11"/><text x="598" y="175.5" class="balloonT">06</text>
+
+  <!-- ======================= ISO REFERENCE ======================= -->
+  <g>
+    <path class="geo2" d="M700 168 838 120 866 138 728 186z"/>
+    <path class="geo2" d="M700 168v16l28 18v-16z"/>
+    <path class="geo2" d="M728 202 866 154v-16"/>
+    <path class="geo2" d="M838 120v10"/>
+    <line class="geo2" x1="727.6" y1="158.4" x2="755.6" y2="176.4"/>
+    <line class="geo2" x1="755.2" y1="148.8" x2="783.2" y2="166.8"/>
+    <line class="geo2" x1="782.8" y1="139.2" x2="810.8" y2="157.2"/>
+    <line class="geo2" x1="810.4" y1="129.6" x2="838.4" y2="147.6"/>
+    <line class="geo2" x1="714" y1="177" x2="852" y2="129"/>
+    <circle class="lughole" cx="703" cy="167" r="2.6"/>
+    <circle class="lughole" cx="839" cy="121" r="2.6"/>
+    <circle class="lughole" cx="863" cy="137" r="2.6"/>
+    <circle class="lughole" cx="731" cy="184" r="2.6"/>
+    <text x="700" y="214" class="micro">ISO REFERENCE</text>
+  </g>
+
+  <!-- ======================= SIDE ELEVATION ======================= -->
+  <text x="368" y="368" class="view" text-anchor="middle">SIDE ELEVATION</text>
+  <!-- parallelism feature-control frame, machined pad plane -->
+  <circle class="balloon" cx="118" cy="272" r="11"/><text x="118" y="275.5" class="balloonT">02</text>
+  <rect class="fcf" x="140" y="264" width="112" height="17"/>
+  <line class="geo2" x1="176" y1="264" x2="176" y2="281"/>
+  <line class="geo2" x1="222" y1="264" x2="222" y2="281"/>
+  <path class="geo2" d="M153 278l6 -11m4 11l6 -11"/>
+  <text x="199" y="276.5" class="fcfT">0.0X</text>
+  <text x="237" y="276.5" class="fcfT">A</text>
+  <line class="lead" x1="252" y1="272" x2="266" y2="286"/>
+  <line class="lead" x1="266" y1="286" x2="259" y2="291"/>
+  <!-- deck + frame profile -->
+  <path class="band" d="M96 302H640v46H96z"/>
+  <rect class="geo" x="96" y="308" width="544" height="40"/>
+  <line class="geo2" x1="96" y1="302" x2="640" y2="302"/>
+  <line class="geo2" x1="96" y1="314" x2="640" y2="314"/>
+  <line class="geo2" x1="96" y1="342" x2="640" y2="342"/>
+  <g class="hid">
+    <line x1="205" y1="314" x2="205" y2="342"/>
+    <line x1="314" y1="314" x2="314" y2="342"/>
+    <line x1="423" y1="314" x2="423" y2="342"/>
+    <line x1="532" y1="314" x2="532" y2="342"/>
+  </g>
+  <!-- machined pads on deck -->
+  <rect class="pad" x="239.5" y="292" width="40" height="10"/>
+  <rect class="pad" x="457.5" y="292" width="40" height="10"/>
+  <!-- end lug plates -->
+  <rect class="lug" x="80" y="286" width="16" height="62" rx="2"/><circle class="lughole" cx="88" cy="298" r="4.5"/>
+  <rect class="lug" x="640" y="286" width="16" height="62" rx="2"/><circle class="lughole" cx="648" cy="298" r="4.5"/>
+  <!-- datum A: base mounting plane -->
+  <path class="datum" d="M130 348l-4.6 8h9.2z"/>
+  <line class="lead" x1="130" y1="356" x2="130" y2="360"/>
+  <rect class="datum" x="123" y="360" width="14" height="14"/>
+  <text x="130" y="371" class="datumT">A</text>
+  <!-- height dimension -->
+  <line class="ext" x1="642" y1="308" x2="662" y2="308"/>
+  <line class="ext" x1="642" y1="348" x2="662" y2="348"/>
+  <line class="dim" x1="657" y1="308" x2="657" y2="348" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <text x="666" y="331" class="dimt">H</text>
+  <!-- overall length dimension -->
+  <line class="ext" x1="96" y1="352" x2="96" y2="386"/>
+  <line class="ext" x1="640" y1="352" x2="640" y2="386"/>
+  <line class="dim" x1="96" y1="381" x2="640" y2="381" marker-start="url(#arr)" marker-end="url(#arr)"/>
+  <rect x="330" y="373" width="76" height="15" fill="#0b1e2b" fill-opacity=".9"/>
+  <text x="368" y="384.5" class="dimt" text-anchor="middle">L · OVERALL</text>
+
+  <!-- ======================= END VIEW ======================= -->
+  <path class="band" d="M720 302H840v46H720z"/>
+  <rect class="geo" x="720" y="308" width="120" height="40"/>
+  <line class="geo2" x1="720" y1="302" x2="840" y2="302"/>
+  <line class="geo2" x1="720" y1="314" x2="840" y2="314"/>
+  <line class="geo2" x1="720" y1="342" x2="840" y2="342"/>
+  <rect class="pad" x="760" y="292" width="40" height="10"/>
+  <rect class="lug" x="708" y="286" width="12" height="62" rx="2"/><circle class="lughole" cx="714" cy="298" r="4"/>
+  <rect class="lug" x="840" y="286" width="12" height="62" rx="2"/><circle class="lughole" cx="846" cy="298" r="4"/>
+  <text x="780" y="368" class="view" text-anchor="middle">END VIEW</text>
+
+  <!-- ======================= TITLE STRIP ======================= -->
+  <g>
+    <rect class="geo2" x="20" y="404" width="840" height="32" fill="#09141c" fill-opacity=".55"/>
+    <line class="geo2" x1="392" y1="404" x2="392" y2="436"/>
+    <line class="geo2" x1="608" y1="404" x2="608" y2="436"/>
+    <line class="geo2" x1="742" y1="404" x2="742" y2="436"/>
+    <text x="34" y="424" class="microGold">MODULAR SKID — INTERFACE-CONTROL DRAWING</text>
+    <text x="406" y="424" class="micro">SCALE NTS · SYMBOLIC DIMENSIONS</text>
+    <text x="622" y="424" class="micro">REV — · CONCEPT ONLY</text>
+    <text x="756" y="424" class="micro">SHEET 1 OF 1</text>
+  </g>
+</svg>

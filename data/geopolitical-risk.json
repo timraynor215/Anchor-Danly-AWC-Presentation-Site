@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-10-10",
+  "refresh_status": "ok",
+  "source_note": "Official U.S. government material-trade notices and active maritime advisories, checked daily.",
+  "caveat": "Headlines identify public risk signals; they are not forecasts, legal advice, or supplier commitments.",
+  "signals": [
+    {
+      "id": "marad-2026-013",
+      "topic": "maritime",
+      "topic_label": "Maritime Route",
+      "title": "2026-013-Red Sea, Bab el Mandeb Strait, Gulf of Aden, Arabian Sea, and Somali Basin-Houthi Attacks on Commercial Vessels",
+      "published_date": null,
+      "source": "U.S. Maritime Advisory System",
+      "source_url": "https://www.maritime.dot.gov/msci/2026-013-red-sea-bab-el-mandeb-strait-gulf-aden-arabian-sea-and-somali-basin-houthi-attacks",
+      "summary": "Active official U.S. maritime advisory relevant to global freight routes.",
+      "source_type": "official"
+    },
+    {
+      "id": "marad-2026-012",
+      "topic": "maritime",
+      "topic_label": "Maritime Route",
+      "title": "2026-012-Black Sea and Sea of Azov-Military Combat Operations",
+      "published_date": null,
+      "source": "U.S. Maritime Advisory System",
+      "source_url": "https://www.maritime.dot.gov/msci/2026-012-black-sea-and-sea-azov-military-combat-operations",
+      "summary": "Active official U.S. maritime advisory relevant to global freight routes.",
+      "source_type": "official"
+    },
+    {
+      "id": "federal-register-2026-20816",
+      "topic": "material_trade",
+      "topic_label": "Trade + Material",
+      "title": "Welded Stainless Steel Pressure Pipe From the Socialist Republic of Vietnam: Preliminary Results of and Intent To Rescind, in Part, Antidumping Duty Administrative Review; 2024-2025",
+      "published_date": "2026-10-13",
+      "source": "Federal Register \u00b7 International Trade Administration",
+      "source_url": "https://www.federalregister.gov/documents/2026/10/13/2026-20816/welded-stainless-steel-pressure-pipe-from-the-socialist-republic-of-vietnam-preliminary-results-of",
+      "summary": "The U.S. Department of Commerce (Commerce) preliminarily determines that sales of welded stainless steel pressure pipe (stainless pressure pipe) from the Socialist Republic of Vietnam (Vietnam) were made at less than normal value (NV)\u2026",
+      "source_type": "official"
+    },
+    {
+      "id": "federal-register-2026-20855",
+      "topic": "energy_supply",
+      "topic_label": "Energy + Supply",
+      "title": "Emergency Tax Relief on Diesel Fuel",
+      "published_date": "2026-10-09",
+      "source": "Federal Register \u00b7 Executive Office of the President",
+      "source_url": "https://www.federalregister.gov/documents/2026/10/09/2026-20855/emergency-tax-relief-on-diesel-fuel",
+      "summary": "Executive Order 14435 of October 5, 2026 Emergency Tax Relief on Diesel Fuel By the authority vested in me as President by the Constitution and the laws of the United States of America, it is hereby ordered: Section 1 . Purpose and\u2026",
+      "source_type": "official"
+    }
+  ],
+  "source_status": [
+    {
+      "source": "U.S. Maritime Advisory System",
+      "status": "ok",
+      "url": "https://www.maritime.dot.gov/msci-advisories"
+    },
+    {
+      "source": "Federal Register",
+      "topic": "material_trade",
+      "status": "ok",
+      "url": "https://www.federalregister.gov/api/v1/documents.json"
+    },
+    {
+      "source": "Federal Register",
+      "topic": "energy_supply",
+      "status": "ok",
+      "url": "https://www.federalregister.gov/api/v1/documents.json"
+    }
+  ]
+}
