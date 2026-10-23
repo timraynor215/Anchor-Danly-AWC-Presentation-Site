@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" role="img" aria-labelledby="title desc">
+  <title id="title">Modular Skid Interface-Control Concept</title>
+  <desc id="desc">A coherent conceptual plan and side elevation showing frame rails, crossmembers, equipment mounting pads, datum references, lifting lugs, tie-downs, symbolic dimensions and customer-defined equipment zones.</desc>
+  <defs>
+    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M42 0H0V42" fill="none" stroke="#426170" stroke-opacity=".16" stroke-width="1"/>
+    </pattern>
+    <filter id="glow"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <style>
+      text{font-family:Arial,Helvetica,sans-serif}
+      .frame{fill:#0d5e93;fill-opacity:.64;stroke:#e4a524;stroke-width:2}
+      .member{fill:#0b4770;stroke:#e4a524;stroke-width:1.7}
+      .zone{fill:#0d6ca8;fill-opacity:.10;stroke:#77bce8;stroke-width:1.4;stroke-dasharray:7 5}
+      .pad{fill:#e4a524;fill-opacity:.18;stroke:#ffc14d;stroke-width:1.7}
+      .hole{fill:#09141c;stroke:#ffc14d;stroke-width:1.5}
+      .handling{fill:#102b3b;stroke:#55c3de;stroke-width:2}
+      .center{fill:none;stroke:#6c8a99;stroke-opacity:.58;stroke-width:1;stroke-dasharray:9 7}
+      .datum{fill:#d99d24;stroke:#ffe09b;stroke-width:1}
+      .datumText{fill:#09141c;font-size:12px;font-weight:800;text-anchor:middle}
+      .label{fill:#f4f7f8;font-size:13px;font-weight:700}
+      .small{fill:#b9c9d2;font-size:11px;font-weight:600}
+      .micro{fill:#91a9b5;font-size:9px;font-weight:600;letter-spacing:.04em}
+      .callout{fill:none;stroke:#e4a524;stroke-width:1.5}
+      .dimension{fill:none;stroke:#7eb3ce;stroke-width:1.1}
+      .gold{fill:#e4a524}
+    </style>
+  </defs>
+  <rect width="760" height="420" fill="url(#grid)"/>
+  <text x="24" y="28" class="micro gold">PLAN VIEW · CONTROLLED INTERFACES</text>
+  <text x="520" y="28" class="micro">CONCEPTUAL · NTS · NOT FOR FABRICATION</text>
+
+  <!-- Plan view: two rails and four crossmembers. -->
+  <g transform="translate(0 4)">
+    <rect class="frame" x="126" y="84" width="498" height="30" rx="2"/>
+    <rect class="frame" x="126" y="254" width="498" height="30" rx="2"/>
+    <rect class="member" x="174" y="114" width="28" height="140" rx="2"/>
+    <rect class="member" x="292" y="114" width="28" height="140" rx="2"/>
+    <rect class="member" x="430" y="114" width="28" height="140" rx="2"/>
+    <rect class="member" x="548" y="114" width="28" height="140" rx="2"/>
+
+    <!-- Customer equipment zones and mounting interfaces. -->
+    <rect class="zone" x="224" y="128" width="132" height="104" rx="5"/>
+    <rect class="zone" x="390" y="122" width="130" height="116" rx="5"/>
+    <g class="pad">
+      <rect x="238" y="142" width="104" height="22" rx="3"/>
+      <rect x="238" y="196" width="104" height="22" rx="3"/>
+      <rect x="404" y="138" width="102" height="24" rx="3"/>
+      <rect x="404" y="198" width="102" height="24" rx="3"/>
+    </g>
+    <g class="hole">
+      <circle cx="250" cy="153" r="4"/><circle cx="330" cy="153" r="4"/>
+      <circle cx="250" cy="207" r="4"/><circle cx="330" cy="207" r="4"/>
+      <circle cx="416" cy="150" r="4"/><circle cx="494" cy="150" r="4"/>
+      <circle cx="416" cy="210" r="4"/><circle cx="494" cy="210" r="4"/>
+    </g>
+
+    <!-- Centerlines and diagonal squareness verification. -->
+    <path class="center" d="M100 184H650M375 58V306M126 84L624 284M126 284L624 84"/>
+
+    <!-- Actual lifting lugs and side tie-down points. -->
+    <g class="handling" filter="url(#glow)">
+      <circle cx="143" cy="99" r="13"/><circle cx="143" cy="99" r="4"/>
+      <circle cx="607" cy="99" r="13"/><circle cx="607" cy="99" r="4"/>
+      <circle cx="143" cy="269" r="13"/><circle cx="143" cy="269" r="4"/>
+      <circle cx="607" cy="269" r="13"/><circle cx="607" cy="269" r="4"/>
+      <path d="M126 172l13 12-13 12M624 172l-13 12 13 12" fill="none"/>
+    </g>
+
+    <!-- Datum tags. -->
+    <g><rect class="datum" x="505" y="244" width="28" height="23" rx="3"/><text class="datumText" x="519" y="260">A</text></g>
+    <g><rect class="datum" x="82" y="172" width="28" height="23" rx="3"/><text class="datumText" x="96" y="188">B</text></g>
+    <g><rect class="datum" x="361" y="296" width="28" height="23" rx="3"/><text class="datumText" x="375" y="312">C</text></g>
+
+    <!-- Callouts point to the correct physical features. -->
+    <path class="callout" d="M143 99L91 58H30"/><text class="label" x="30" y="52">Actual Lift Lugs</text>
+    <path class="callout" d="M290 142L258 58H188"/><text class="label" x="188" y="52">Mounting Pads + Hole Pattern</text>
+    <path class="callout" d="M455 122L500 58H618"/><text class="label" x="500" y="52">Customer Equipment Zone</text>
+    <path class="callout" d="M126 184L78 224H28"/><text class="label" x="28" y="240">Transport Tie-Down</text>
+    <path class="callout" d="M519 255L570 318H680"/><text class="label" x="570" y="334">Datum A · Pad Plane</text>
+    <text class="micro" x="233" y="278">DISTORTION-CONTROL INSPECTION LINE</text>
+    <text class="micro" x="397" y="236">MASK / PROTECT INTERFACE PADS</text>
+
+    <!-- Symbolic overall dimensions. -->
+    <path class="dimension" d="M126 330V314M624 330V314M126 324H624M126 324l9-4M126 324l9 4M624 324l-9-4M624 324l-9 4"/>
+    <text class="small" x="375" y="344" text-anchor="middle">Overall Length L · To Released Drawing</text>
+    <path class="dimension" d="M690 84H672M690 284H672M683 84V284M683 84l-4 9M683 84l4 9M683 284l-4-9M683 284l4-9"/>
+    <text class="small" transform="translate(707 184) rotate(90)" text-anchor="middle">Overall Width W</text>
+  </g>
+
+  <!-- Side elevation clarifies planes instead of mixing view conventions. -->
+  <g transform="translate(0 14)">
+    <text x="24" y="356" class="micro gold">SIDE ELEVATION · DATUM PLANES</text>
+    <rect class="frame" x="126" y="368" width="498" height="18" rx="2"/>
+    <rect class="pad" x="238" y="357" width="104" height="11" rx="2"/>
+    <rect class="pad" x="404" y="357" width="102" height="11" rx="2"/>
+    <rect class="zone" x="238" y="337" width="104" height="20" rx="3"/>
+    <rect class="zone" x="404" y="331" width="102" height="26" rx="3"/>
+    <path class="callout" d="M126 357H624"/>
+    <path class="dimension" d="M126 386H624"/>
+    <text class="small" x="735" y="360" text-anchor="end">Datum A · Mounting Plane</text>
+    <text class="small" x="735" y="389" text-anchor="end">Base Support Plane</text>
+  </g>
+</svg>

@@ -1,0 +1,380 @@
+<!-- Imported interaction engine; product data, branding, and palette adapted for this presentation. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Anchor Danly + AWC | Modular Fabrication Schedule Calculator</title>
+
+<style>
+:root {
+  --ink: #261f1d; --ink-soft: #625551; --paper: #f6f0eb;
+  --surface-1: #ffffff; --surface-2: #fbf7f3; --surface-3: #f2e9e3;
+  --surface-4: #eadfd8; --surface-5: #dfd0c7;
+  --accent: #d99d24; --accent-dark: #8f1c21; --accent-soft: rgba(217,157,36,0.12);
+  --steel: #3d3935; --steel-light: #9c9087; --border: #e4d6ce;
+  --shadow: rgba(44, 33, 29, 0.14);
+}
+body.theme-dark {
+  --ink: #f5ece5; --ink-soft: #d6c8c1; --paper: #181312;
+  --surface-1: #211a18; --surface-2: #2d2421; --surface-3: #392e2a;
+  --surface-4: #453834; --surface-5: #53433e;
+  --accent: #f4c85a; --accent-dark: #f0a49e; --accent-soft: rgba(229,107,99,0.22);
+  --steel: #efe2da; --steel-light: #786960; --border: #54433d;
+  --shadow: rgba(0,0,0,0.4);
+}
+* { box-sizing: border-box; }
+body { margin:0; font-family:'Barlow','Segoe UI','Helvetica Neue',Arial,sans-serif; color:var(--ink); background:var(--paper); line-height:1.5; min-height:100vh; }
+body::before { content:''; position:fixed; inset:0; z-index:-2; background:none center/cover no-repeat; }
+body::after { content:''; position:fixed; inset:0; z-index:-1; background:rgba(248,250,252,0.72); backdrop-filter:blur(2px); }
+body.theme-dark::after { background:rgba(24,19,18,0.78); }
+.disclaimer-bar { max-width:1280px; margin:12px auto 0; padding:10px 20px; font-size:0.8rem; color:var(--ink); opacity:0.7; text-align:center; font-style:italic; line-height:1.5; }
+.site-links { max-width:1280px; margin:8px auto 0; padding:0 20px; text-align:center; font-size:0.82rem; }
+.site-links a { color:var(--accent); text-decoration:none; margin:0 10px; font-weight:600; transition:opacity 0.2s; }
+.site-links a:hover { text-decoration:underline; opacity:0.8; }
+.site-links .sep { color:var(--steel-light); opacity:0.4; }
+.site-footer { max-width:1280px; margin:32px auto 24px; padding:16px 20px; text-align:center; font-size:0.82rem; border-top:1px solid var(--border); color:var(--ink); opacity:0.6; }
+.site-footer a { color:var(--accent); text-decoration:none; font-weight:600; }
+.site-footer a:hover { text-decoration:underline; }
+.container { max-width:1280px; margin:0 auto; padding:0 20px 60px; }
+header.hero { background:linear-gradient(135deg,rgba(41,30,28,0.9) 0%,rgba(111,34,37,0.82) 100%),none center/cover no-repeat; color:#fff; padding:28px 32px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+header.hero .brand { display:flex; align-items:center; gap:16px; }
+header.hero .brand img { width:176px; height:auto; border-radius:0; filter:drop-shadow(0 10px 18px rgba(0,0,0,0.22)); }
+header.hero h1 { margin:0; font-family:'Barlow','Segoe UI','Helvetica Neue',Arial,sans-serif; font-size:clamp(1.2rem,2.5vw,1.8rem); text-transform:uppercase; letter-spacing:0.12em; font-weight:800; }
+header.hero .subtitle { font-size:0.85rem; opacity:0.7; margin-top:2px; }
+.header-links { margin-top:4px; font-size:0.78rem; }
+.header-links a { color:inherit; text-decoration:none; opacity:0.65; font-weight:600; transition:opacity 0.2s; }
+.header-links a:hover { opacity:1; text-decoration:underline; }
+.header-links .sep { opacity:0.3; margin:0 8px; }
+.theme-toggle { display:flex; align-items:center; gap:8px; font-size:0.82rem; color:rgba(255,255,255,0.7); }
+.switch { position:relative; display:inline-block; width:44px; height:24px; }
+.switch input { opacity:0; width:0; height:0; }
+.slider { position:absolute; cursor:pointer; inset:0; background:var(--steel-light); transition:0.3s; border-radius:999px; }
+.slider:before { position:absolute; content:''; height:18px; width:18px; left:3px; bottom:3px; background:#fff; transition:0.3s; border-radius:50%; }
+.switch input:checked+.slider { background:var(--accent); }
+.switch input:checked+.slider:before { transform:translateX(20px); }
+.section { margin-top:32px; background:var(--surface-1); border-radius:22px; padding:24px; box-shadow:0 16px 32px var(--shadow); border:1px solid var(--border); }
+.section h2 { margin-top:0; font-family:'Barlow','Segoe UI','Helvetica Neue',Arial,sans-serif; font-size:1.6rem; }
+.section h3,.stat-card h3,.value-card h4 { font-family:'Barlow','Segoe UI','Helvetica Neue',Arial,sans-serif; }
+.section-header { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.section-controls { display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin:10px 0 18px; }
+.section-controls label { font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-soft); }
+.section-controls select { min-width:220px; padding:10px 12px; border-radius:12px; border:1px solid var(--steel-light); background:var(--surface-2); font-family:inherit; color:var(--ink); }
+.section-controls .reset-btn { width:auto; }
+.inline-field { display:flex; align-items:center; gap:8px; }
+.qty-wrap { display:inline-flex; align-items:center; gap:6px; }
+.qty-input { width:80px; padding:10px 12px; border-radius:12px; border:1px solid var(--steel-light); background:var(--surface-2); font-family:inherit; color:var(--ink); font-size:0.95rem; text-align:center; font-weight:600; }
+.qty-input:focus { outline:2px solid var(--accent); border-color:var(--accent); }
+.qty-unit { font-size:0.78rem; color:var(--ink-soft); font-weight:600; min-width:40px; }
+.qty-note { font-size:0.72rem; color:var(--ink-soft); font-style:italic; }
+.reset-btn { padding:10px 16px; border-radius:12px; border:1px solid var(--steel-light); background:var(--accent); color:white; font-weight:600; cursor:pointer; font-family:inherit; font-size:0.85rem; }
+.reset-btn:hover { background:var(--accent-dark); }
+.grid { display:grid; gap:16px; }
+@media(min-width:900px){ .grid.cols-3{grid-template-columns:repeat(3,1fr);} .grid.cols-2{grid-template-columns:repeat(2,1fr);} }
+.stat-card { background:linear-gradient(180deg,var(--surface-1) 0%,var(--surface-2) 100%); border-radius:18px; padding:18px; border:1px solid var(--steel-light); }
+.stat-card h3 { margin:0 0 6px; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--accent-dark); }
+.stat-card p { margin:0; font-size:1.4rem; font-weight:600; }
+.value-summary { margin-top:16px; display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); }
+.value-card { border-radius:16px; padding:14px 16px; border:1px solid var(--steel-light); background:var(--surface-1); text-align:center; }
+.value-card h4 { margin:0 0 6px; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--accent-dark); }
+.value-card p { margin:0; font-size:1.15rem; font-weight:600; }
+.muted { color:var(--ink-soft); }
+.timeline-input { padding:10px 12px; border-radius:12px; border:1px solid var(--steel-light); background:var(--surface-2); font-family:inherit; color:var(--ink); min-width:190px; }
+select.timeline-input { min-width:230px; }
+.due-basis-wrap { display:inline-flex; align-items:center; gap:8px; flex-wrap:wrap; padding:8px 10px; border:2px solid var(--accent); border-radius:14px; background:var(--accent-soft); box-shadow:0 0 0 2px rgba(217,157,36,0.12); }
+.due-basis-title { font-size:0.72rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--accent-dark); font-weight:800; }
+.due-basis-pill { position:relative; display:inline-flex; align-items:center; }
+.due-basis-pill input { position:absolute; opacity:0; pointer-events:none; }
+.due-basis-pill span { display:inline-block; border:1px solid var(--accent); background:var(--surface-1); color:var(--accent-dark); border-radius:999px; padding:6px 11px; font-size:0.78rem; font-weight:700; letter-spacing:0.01em; cursor:pointer; transition:all 0.2s ease; }
+.due-basis-pill input:checked+span { background:var(--accent); color:#fff; border-color:var(--accent-dark); box-shadow:0 4px 10px rgba(217,157,36,0.3); }
+.due-basis-pill input:focus-visible+span { outline:2px solid var(--accent-dark); outline-offset:2px; }
+.big { font-size:2rem; margin:10px 0 0; font-weight:700; }
+.timeline-module { margin-top:18px; border-radius:18px; border:1px solid var(--border); background:var(--surface-2); padding:14px; overflow-x:auto; }
+.timeline-head { display:grid; grid-template-columns:220px 220px 1fr 320px; gap:12px; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-soft); }
+.timeline-row { display:grid; grid-template-columns:220px 220px 1fr 320px; gap:12px; align-items:center; padding:10px 0; border-top:1px solid var(--border); position:relative; }
+.timeline-row .help-icon { right:6px; bottom:6px; }
+.timeline-stage .stage-name { font-weight:650; }
+.timeline-stage .stage-range { font-size:0.85rem; }
+.timeline-stage .stage-note { margin-top:4px; font-size:0.82rem; }
+.timeline-duration { display:grid; gap:8px; }
+.timeline-slider { width:100%; accent-color:var(--accent); }
+.timeline-slider-value { font-size:0.82rem; color:var(--ink-soft); }
+.timeline-client-input { font-size:0.9rem; }
+.timeline-client-due { margin-top:4px; font-size:0.82rem; }
+.timeline-bar-track { height:14px; border-radius:999px; border:1px solid var(--steel-light); background:var(--surface-3); position:relative; overflow:hidden; }
+.timeline-bar { height:100%; background:var(--accent); border-radius:999px; margin-left:var(--x,0%); width:var(--w,0%); }
+.timeline-foot { margin-top:10px; font-size:0.9rem; }
+ul.tight { margin:10px 0 0; padding-left:18px; }
+ul.tight li { margin:6px 0; }
+.timeline-module .timeline-head,.timeline-module .timeline-row { min-width:980px; }
+@media print { body,body::before,body::after{background:#fff!important;} body::before,body::after{display:none!important;} .theme-toggle{display:none!important;} .section{box-shadow:none;border:1px solid #ccc;break-inside:avoid;page-break-inside:avoid;} header.hero{background:#fff!important;color:#000!important;border:none;box-shadow:none;padding:0;margin-bottom:20px;} header.hero h1{font-size:24pt;color:#000;} .stat-card{break-inside:avoid;page-break-inside:avoid;border:1px solid #ddd;} }
+
+.contact-bar { margin-top:32px; background:var(--surface-1); border-radius:22px; padding:28px 32px; box-shadow:0 16px 32px var(--shadow); border:1px solid var(--border); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:24px; }
+.contact-info { display:flex; flex-direction:column; gap:4px; }
+.contact-info .name { font-size:1.15rem; font-weight:700; font-family:'Barlow','Segoe UI',sans-serif; }
+.contact-info .title { font-size:0.88rem; color:var(--ink-soft); }
+.contact-info .detail { font-size:0.85rem; color:var(--ink-soft); }
+.contact-info .detail a { color:var(--accent); text-decoration:none; font-weight:600; }
+.contact-info .detail a:hover { text-decoration:underline; }
+.cta-group { display:flex; gap:12px; flex-wrap:wrap; }
+.cta-btn { display:inline-flex; align-items:center; gap:8px; padding:12px 22px; border-radius:14px; font-family:inherit; font-size:0.9rem; font-weight:700; cursor:pointer; text-decoration:none; transition:all 0.2s ease; border:none; }
+.cta-btn.primary { background:var(--accent); color:#fff; box-shadow:0 4px 14px rgba(217,157,36,0.26); }
+.cta-btn.primary:hover { background:var(--accent-dark); box-shadow:0 6px 20px rgba(217,157,36,0.34); transform:translateY(-1px); }
+.cta-btn.secondary { background:var(--surface-3); color:var(--ink); border:1px solid var(--steel-light); }
+.cta-btn.secondary:hover { border-color:var(--accent); color:var(--accent); }
+.cta-btn svg { width:18px; height:18px; fill:currentColor; flex-shrink:0; }
+.value-card, .stat-card { position:relative; }
+.help-icon { display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; border-radius:50%; background:transparent; color:var(--steel-light); font-size:0.55rem; font-weight:700; cursor:pointer; text-decoration:none; position:absolute; right:10px; bottom:10px; border:1px solid var(--steel-light); opacity:0.5; transition:all 0.2s ease; }
+.help-icon:hover { opacity:0.85; border-color:var(--accent); color:var(--accent); }
+.help-icon .help-tip { display:none; position:absolute; bottom:calc(100% + 8px); right:-4px; left:auto; transform:none; background:var(--surface-1); color:var(--ink); padding:6px 10px; border-radius:8px; font-size:0.68rem; font-weight:400; font-style:italic; white-space:nowrap; z-index:100; box-shadow:0 3px 10px rgba(0,0,0,0.18); border:1px solid var(--border); pointer-events:none; text-transform:none; letter-spacing:0; }
+.help-icon .help-tip::after { content:''; position:absolute; top:100%; right:8px; left:auto; transform:none; border:5px solid transparent; border-top-color:var(--border); }
+.help-icon:hover .help-tip { display:block; }
+body.embed-mode { background:transparent; }
+body.embed-mode::before,body.embed-mode::after { display:none; }
+body.embed-mode header.hero,
+body.embed-mode .disclaimer-bar,
+body.embed-mode .contact-bar,
+body.embed-mode .site-footer { display:none!important; }
+body.embed-mode .container { width:min(100%,1580px); margin:0 auto; padding:0; }
+body.embed-mode .value-summary { gap:10px; }
+body.embed-mode .value-card { padding:14px 16px; }
+body.embed-mode .big { font-size:clamp(1.2rem,1.8vw,1.8rem); }
+body.embed-mode .timeline-module .timeline-head,body.embed-mode .timeline-module .timeline-row { min-width:900px; }
+body.embed-mode .section { margin:0; border-radius:22px; }
+body.embed-mode #timeline { padding:12px 14px 14px; }
+body.embed-mode #timeline .section-header > h2,
+body.embed-mode #timeline > p.muted { display:none; }
+body.embed-mode #timeline .section-header { justify-content:flex-end; margin-bottom:12px; }
+body.embed-mode #timeline .section-controls { width:100%; justify-content:flex-start; }
+body.embed-mode .grid.cols-2:last-of-type { display:none; }
+@media print { .contact-bar,.help-icon,.disclaimer-bar,.site-links,.site-footer{display:none!important;} }
+</style>
+
+<style id="anchor-awc-theme">
+:root, body, body.theme-dark {
+  --bg:#0b1218; --surface-1:#111a21; --surface-2:#182630; --surface-3:#1d303c;
+  --ink:#f4f7f8; --ink-soft:#bdcbd3; --paper:#0b1218; --muted:#bdcbd3; --accent:#d99d24; --accent-dark:#f4c85a;
+  --accent-soft:rgba(217,157,36,.16); --steel:#8fa6b3; --steel-light:rgba(143,166,179,.32); --border:rgba(143,166,179,.26);
+  --anchor-blue:#074777; --anchor-yellow:#d99d24;
+}
+html, body { background:#0b1218 !important; color:#f4f7f8 !important; }
+body { background:radial-gradient(circle at 82% 8%, rgba(7,71,119,.42), transparent 30%), linear-gradient(145deg,#0b1218,#111a21) !important; }
+body::before, body::after { display:none !important; }
+* { scrollbar-color:#496575 #0b1218; }
+*::-webkit-scrollbar { width:10px; height:10px; }
+*::-webkit-scrollbar-track { background:#0b1218; }
+*::-webkit-scrollbar-thumb { background:#496575; border:2px solid #0b1218; border-radius:999px; }
+header, .topbar, .site-header { border-color:rgba(217,157,36,.28) !important; }
+button, input, select { accent-color:#d99d24; }
+.btn-primary, button.primary, .timeline-bar, input[type="range"]::-webkit-slider-thumb { background:#d99d24 !important; color:#0b1218 !important; }
+.metric-card, .summary-card, .card, .timeline-row, .control-card { background:rgba(17,26,33,.92) !important; border-color:rgba(135,164,181,.22) !important; }
+.timeline-bar { box-shadow:0 0 18px rgba(217,157,36,.24); }
+a { color:#f4c85a; }
+.calculator-brand-lockup { display:flex; align-items:center; gap:12px; margin-right:16px; }
+.calculator-brand-lockup img { display:block; width:148px; max-height:42px; object-fit:contain; }
+.calculator-brand-lockup img.awc-calculator-logo { width:76px; }
+.calculator-brand-lockup span { width:1px; height:34px; background:rgba(217,157,36,.48); }
+h1, h2, h3, h4 { text-transform:capitalize; }
+.site-footer { color:#bdcbd3 !important; border-color:rgba(217,157,36,.22) !important; }
+@media print {
+  html, body, header.hero, .section, .stat-card { background:#0b1218 !important; color:#f4f7f8 !important; }
+  .section, .stat-card { border-color:rgba(143,166,179,.3) !important; }
+}
+</style>
+</head>
+<body class="embed-mode">
+<header class="hero">
+  <div class="brand">
+    <div class="calculator-brand-lockup"><img src="../brand/anchor-danly-logo.png" alt="Anchor Danly"><span></span><img class="awc-calculator-logo" src="../brand/awc-logo.png" alt="AWC Manufacturing"></div>
+    <div>
+      <h1>Modular Fabrication Schedule Calculator</h1>
+      <div class="subtitle">Anchor Danly + AWC &mdash; Interactive lead-time planner</div>
+      <div class="header-links"><a href="https://www.anchordanly.com/fabrications/" target="_blank" rel="noopener">Anchor Danly Fabrications</a><span class="sep">|</span><a href="https://awcmanufacturing.com/gallery" target="_blank" rel="noopener">AWC Gallery</a></div>
+    </div>
+  </div>
+  
+</header>
+<div class="container">
+  <section class="section" id="timeline">
+    <div class="section-header">
+      <h2>Schedule Calculator</h2>
+      <div class="section-controls">
+        <label for="mm-item-select">Item Type</label>
+        <select class="timeline-input" id="mm-item-select" title="Select modular fabrication scope item"></select>
+        <label for="program-phase">Release Basis</label>
+        <select class="timeline-input" id="program-phase" title="Select first-article or repeat-release planning basis"><option value="first">First article / new configuration</option><option value="repeat">Repeat released configuration</option></select>
+        <label for="qty-input">Quantity</label>
+        <div class="qty-wrap">
+          <input class="qty-input" type="number" id="qty-input" min="1" value="4" title="Enter scope quantity to scale durations" />
+          <span class="qty-unit" id="qty-unit">pcs</span>
+        </div>
+        <span class="qty-note" id="qty-note">Scales production-stage defaults</span>
+        <label for="ntp-date">Award / NTP <span class="muted" style="font-weight:400;font-size:0.78rem">(Optional)</span></label>
+        <input class="timeline-input" type="date" id="ntp-date" />
+        <div class="inline-field"><label for="due-by-date">Target Completion Date</label><input class="timeline-input" type="date" id="due-by-date" /><div class="due-basis-wrap" role="group" aria-label="Due-by basis"><span class="due-basis-title">Completion Basis</span><label class="due-basis-pill"><input type="radio" name="due-by-basis" value="delivery" /><span>First Staged Delivery</span></label><label class="due-basis-pill"><input type="radio" name="due-by-basis" value="install" checked /><span>Production Lot Complete</span></label></div></div>
+        <button class="reset-btn" type="button" id="timeline-reset" title="Reset to default stage durations">Reset</button>
+      </div>
+    </div>
+    <p class="muted">Choose the product, release basis, and quantity. Enter a target date to back-solve the latest award date, or enter Award / NTP to calculate forward.</p>
+    <div class="value-summary">
+      <div class="value-card"><h4>First staged delivery<a class="help-icon" href="mailto:tdougherty@anchordanly.com?subject=Question%20about%20delivery%20timeline" title="Email Tim">?<span class="help-tip">Have a question? Click to email Tim.</span></a></h4><p class="big" id="timeline-total-steel">--</p><span class="muted" id="timeline-first-date">calendar weeks from NTP</span></div>
+      <div class="value-card"><h4>Production lot complete<a class="help-icon" href="mailto:tdougherty@anchordanly.com?subject=Question%20about%20install%20timeline" title="Email Tim">?<span class="help-tip">Have a question? Click to email Tim.</span></a></h4><p class="big" id="timeline-total-erect">--</p><span class="muted" id="timeline-complete-date">calendar weeks from NTP</span></div>
+      <div class="value-card"><h4>Schedule driver<a class="help-icon" href="mailto:tdougherty@anchordanly.com?subject=Question%20about%20schedule%20driver" title="Email Tim">?<span class="help-tip">Have a question? Click to email Tim.</span></a></h4><p class="big" id="timeline-driver">Submittal review</p><span class="muted">longest stage by duration</span></div>
+      <div class="value-card"><h4>Next client input due</h4><p class="big" id="timeline-next-input">--</p><span class="muted">to protect scheduled delivery</span></div>
+      <div class="value-card"><h4>Latest award date<a class="help-icon" href="mailto:tdougherty@anchordanly.com?subject=Question%20about%20award%20date" title="Email Tim">?<span class="help-tip">Have a question? Click to email Tim.</span></a></h4><p class="big" id="timeline-latest-release">--</p><span class="muted" id="timeline-latest-release-note">to meet your target date</span></div>
+    </div>
+    <div class="timeline-module" aria-label="Timeline table">
+      <div class="timeline-head"><div>Stage</div><div>Duration (wks)</div><div>Timeline</div><div>Client input needed by</div></div>
+      <div id="timeline-rows"></div>
+      <div class="timeline-foot muted">Calendar-week planning baseline—not a quote or capacity commitment. Adjust for package maturity, sourcing, inspection, finish, holidays, transit, and receiving constraints.</div>
+    </div>
+    <div class="grid cols-2" style="margin-top:18px;">
+      <div class="stat-card"><h3>Client Inputs Needed to Hold Dates<a class="help-icon" href="mailto:tdougherty@anchordanly.com?subject=Question%20about%20client%20inputs" title="Email Tim">?<span class="help-tip">Have a question? Click to email Tim.</span></a></h3><ul class="tight" id="timeline-client-inputs"><li>Set a target completion date or award date to generate due-by checkpoints.</li></ul></div>
+      <div class="stat-card"><h3>Acceleration Options<a class="help-icon" href="mailto:tdougherty@anchordanly.com?subject=Question%20about%20acceleration%20options" title="Email Tim">?<span class="help-tip">Have a question? Click to email Tim.</span></a></h3><ul class="tight" id="timeline-acceleration-options"><li>Approve long-lead material and repeat details ahead of the complete production release.</li><li>Release fabrication by configuration or production lot instead of one all-at-once package.</li><li>Pre-approve standard details, finish systems, and stock substitutions where allowed.</li><li>Coordinate packaging, receiving windows, and lot sequence before first dispatch.</li></ul></div>
+    </div>
+    <div class="grid cols-2" style="margin-top:18px;">
+      <div class="stat-card"><h3>Package Planning Snapshot</h3><ul class="tight" id="timeline-project-qty"><li>Select an item type to view typical project quantities.</li></ul></div>
+      <div class="stat-card"><h3>Schedule Basis Note</h3><ul class="tight" id="timeline-basis-note-list"><li>Per project proposal terms, final sequencing is coordinated at award.</li><li>Delivery dates depend on the released drawing baseline, material availability, and the agreed production window.</li><li>Inspection, witness, testing, and turnover responsibilities are confirmed during scope alignment.</li></ul></div>
+    </div>
+  </section>
+
+  <div class="contact-bar">
+    <div class="contact-info">
+      <div class="name">Tim Dougherty</div>
+      <div class="title">Director of Sales, Fabrication & Modular Solutions &mdash; Anchor Danly + AWC</div>
+      <div class="detail">Great Lakes manufacturing footprint</div>
+      <div class="detail"><a href="mailto:tdougherty@anchordanly.com">tdougherty@anchordanly.com</a> &nbsp;·&nbsp; <a href="tel:+16107575061">610-757-5061</a></div>
+    </div>
+    <div class="cta-group">
+      <a class="cta-btn primary" href="mailto:tdougherty@anchordanly.com?subject=Modular%20Fabrication%20Fit%20Review" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zM7 12h5v5H7v-5z"/></svg>
+        Start a Fit Review
+      </a>
+      <a class="cta-btn secondary" href="mailto:tdougherty@anchordanly.com?subject=Schedule%20Calculator%20-%20Quick%20Question&body=Hi%20Tim%2C%0A%0AI%20was%20using%20the%20Modular%20Fabrication%20Schedule%20Calculator%20and%20had%20a%20question.%0A%0AThanks">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Send an Email
+      </a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){document.body.classList.add('embed-mode');})();
+(function(){var t=document.getElementById('theme-switch');function a(d){document.body.classList.toggle('theme-dark',d);try{localStorage.setItem('schedCalcTheme',d?'dark':'light')}catch(e){}}if(t){try{var s=localStorage.getItem('schedCalcTheme');if(s==='light'){t.checked=false;a(false)}else{t.checked=true;a(true)}}catch(e){t.checked=true;a(true)}t.addEventListener('change',function(){a(t.checked)})}})();
+(function(){
+var STORAGE_KEY='schedCalcTimelineStateV4';
+var PRODUCTS={"skids":{"label":"Bare Fabricated Skids","unit":"assemblies","baseline":4,"firstLot":1,"weeklyRate":1,"balanceBuffer":1,"review":{"first":2,"repeat":1},"material":{"first":4,"repeat":3},"route":{"first":2,"repeat":1},"firstFab":{"first":2,"repeat":1},"firstRelease":2,"risk":"Lifting details, center of gravity, weld sequence, flatness, finish, and transport condition drive the release plan."},"bases":{"label":"Equipment Bases","unit":"assemblies","baseline":6,"firstLot":1,"weeklyRate":2,"balanceBuffer":1,"review":{"first":2,"repeat":1},"material":{"first":4,"repeat":3},"route":{"first":3,"repeat":1},"firstFab":{"first":3,"repeat":2},"firstRelease":3,"risk":"Critical datums, machined mounting interfaces, flatness, and the dimensional-reporting plan drive the release plan."},"frames":{"label":"Structural / Equipment Frames","unit":"frames","baseline":8,"firstLot":2,"weeklyRate":2,"balanceBuffer":1,"review":{"first":2,"repeat":1},"material":{"first":4,"repeat":3},"route":{"first":2,"repeat":1},"firstFab":{"first":2,"repeat":1},"firstRelease":2,"risk":"Fixture strategy, weld sequence, distortion control, and equipment-interface tolerances drive the release plan."},"power":{"label":"Power-Distribution Structures","unit":"structures","baseline":4,"firstLot":1,"weeklyRate":2,"balanceBuffer":1,"review":{"first":3,"repeat":1},"material":{"first":5,"repeat":4},"route":{"first":3,"repeat":1},"firstFab":{"first":3,"repeat":2},"firstRelease":3,"risk":"Equipment interfaces, grounding provisions, clearances, finish, and turnover records drive the release plan."},"cooling":{"label":"Cooling-Module Frames","unit":"frames","baseline":4,"firstLot":1,"weeklyRate":2,"balanceBuffer":1,"review":{"first":3,"repeat":1},"material":{"first":5,"repeat":4},"route":{"first":3,"repeat":1},"firstFab":{"first":3,"repeat":2},"firstRelease":3,"risk":"Equipment, piping, vibration, corrosion protection, lifting, and integration interfaces drive the release plan."},"supports":{"label":"Racks, Supports + Transport Fixtures","unit":"assemblies","baseline":20,"firstLot":5,"weeklyRate":5,"balanceBuffer":1,"review":{"first":1,"repeat":1},"material":{"first":3,"repeat":2},"route":{"first":1,"repeat":0},"firstFab":{"first":1,"repeat":1},"firstRelease":2,"risk":"Configuration count, finish, nesting, identification, packaging, and destination sequence drive the release plan."}};
+var DEFAULT_KEY='skids';
+var PHASE_LABELS={first:'First article / new configuration',repeat:'Repeat released configuration'};
+
+function addWeeks(dateValue,weeks){var result=new Date(dateValue.getTime());result.setDate(result.getDate()+Math.round(weeks*7));return result}
+function formatDate(dateValue){try{return new Intl.DateTimeFormat(undefined,{year:'numeric',month:'short',day:'2-digit'}).format(dateValue)}catch(error){return dateValue.toISOString().slice(0,10)}}
+function formatWeeks(value){var number=Number(value);return Number.isFinite(number)?String(Math.max(0,Math.ceil(number))):'0'}
+function parseDate(value){return value?new Date(value+'T00:00:00'):null}
+function hasProduct(key){return Object.prototype.hasOwnProperty.call(PRODUCTS,key)}
+function getProduct(key){return hasProduct(key)?PRODUCTS[key]:PRODUCTS[DEFAULT_KEY]}
+function stage(key,label,weeks,min,max,note,clientInput){return{key:key,label:label,weeks:weeks,min:min,max:max,note:note,clientInput:clientInput}}
+function materialQuantityAdder(product,quantity){if(quantity<=product.baseline)return 0;return Math.min(3,Math.ceil((quantity-product.baseline)/product.baseline))}
+function makeStages(productKey,phase,quantity){
+  var product=getProduct(productKey),mode=phase==='repeat'?'repeat':'first';
+  var firstLot=Math.min(quantity,product.firstLot);
+  var balance=Math.max(0,quantity-firstLot);
+  var balanceWeeks=balance?Math.ceil(balance/product.weeklyRate)+product.balanceBuffer:0;
+  var materialWeeks=product.material[mode]+materialQuantityAdder(product,quantity);
+  var routeInput=mode==='first'?'First-article, witness, and hold-point requirements approved.':'Qualified revision, accepted control plan, and reusable tooling status confirmed.';
+  return[
+    stage('release','Scope release + kickoff',1,1,3,'Establish the released package, configuration count, lot sequence, and decision owners.','Released drawings/models, BOM, quantity, revision status, and required shipment sequence.'),
+    stage('review','DFM, interface + quality closure',product.review[mode],1,8,'Resolve producibility, interfaces, tolerances, weld requirements, finish, inspection, and open deviations.','Consolidated answers for interfaces, tolerances, welds, finish, inspection, and deviations.'),
+    stage('material','Material confirmation + procurement',materialWeeks,1,30,'Confirm source, grade, substitutions, and release timing for plate, shapes, HSS, sheet, and purchased content.','Approved substitutions, customer-supplied content, and long-lead decisions.'),
+    stage('route','Routing, fixture + inspection-plan readiness',product.route[mode],0,10,'Finalize the manufacturing route, work instructions, fixtures, inspection points, and first-article controls.',routeInput),
+    stage('first_fab','First release lot fabrication',product.firstFab[mode],1,12,'Cut, form, fit, weld, straighten, and verify the first controlled release lot.','Design changes frozen before the first release lot enters fabrication.'),
+    stage('first_release','First lot finish, inspection + dispatch',product.firstRelease,1,10,'Complete specified finish, final acceptance records, protection, identification, and dispatch for the first lot.','Receiving window, destination, unloading limits, and documentation recipients confirmed.'),
+    stage('balance','Balance production + final release',balanceWeeks,0,30,balance?'Produce the remaining quantity through repeatable lots, closing finish, inspection, documentation, and dispatch by release.':'No balance quantity remains after the first release lot.','Lot priorities and approved configuration splits confirmed before balance production.')
+  ];
+}
+
+function buildRow(stageData){
+  var row=document.createElement('div');row.className='timeline-row';row.dataset.key=stageData.key;
+  var stageCell=document.createElement('div');stageCell.className='timeline-stage';stageCell.innerHTML='<div class="stage-name"></div><div class="stage-range muted"></div><div class="stage-note muted"></div>';
+  stageCell.querySelector('.stage-name').textContent=stageData.label;stageCell.querySelector('.stage-note').textContent=stageData.note;
+  var durationCell=document.createElement('div'),durationWrap=document.createElement('div');durationWrap.className='timeline-duration';
+  var slider=document.createElement('input');slider.className='timeline-slider';slider.type='range';slider.min=String(stageData.min??0);slider.max=String(stageData.max??12);slider.step='1';slider.value=String(Math.max(0,Math.ceil(stageData.weeks||0)));slider.setAttribute('aria-label',stageData.label+' duration in calendar weeks');
+  var sliderValue=document.createElement('span');sliderValue.className='timeline-slider-value';sliderValue.textContent=formatWeeks(stageData.weeks)+' wks';durationWrap.appendChild(slider);durationWrap.appendChild(sliderValue);durationCell.appendChild(durationWrap);
+  var barCell=document.createElement('div'),track=document.createElement('div');track.className='timeline-bar-track';var bar=document.createElement('div');bar.className='timeline-bar';track.appendChild(bar);barCell.appendChild(track);
+  var clientCell=document.createElement('div'),clientInput=document.createElement('div');clientInput.className='timeline-client-input';var clientDue=document.createElement('div');clientDue.className='timeline-client-due muted';clientCell.appendChild(clientInput);clientCell.appendChild(clientDue);
+  var help=document.createElement('a');help.className='help-icon';help.title='Email Tim';help.innerHTML='?<span class="help-tip">Have a question about this stage? Click to email Tim.</span>';
+  help.addEventListener('click',function(event){event.preventDefault();var item=document.getElementById('mm-item-select'),name=item?item.options[item.selectedIndex].text:'this item';window.location.href='mailto:tdougherty@anchordanly.com?subject='+encodeURIComponent('Question about '+stageData.label+' for '+name)+'&body='+encodeURIComponent('Hi Tim,\n\nI was using the modular fabrication schedule calculator and had a question about the "'+stageData.label+'" stage for '+name+'.\n\nThanks')});
+  row.appendChild(stageCell);row.appendChild(durationCell);row.appendChild(barCell);row.appendChild(clientCell);row.appendChild(help);
+  return{row:row,slider:slider,sliderValue:sliderValue,bar:bar,rangeEl:stageCell.querySelector('.stage-range'),clientInputEl:clientInput,clientDueEl:clientDue};
+}
+
+function setup(){
+  var rowsHost=document.getElementById('timeline-rows');if(!rowsHost)return;
+  var ntpInput=document.getElementById('ntp-date'),dueInput=document.getElementById('due-by-date'),basisInputs=Array.from(document.querySelectorAll('input[name="due-by-basis"]')),resetButton=document.getElementById('timeline-reset'),itemSelect=document.getElementById('mm-item-select'),phaseSelect=document.getElementById('program-phase'),quantityInput=document.getElementById('qty-input'),quantityUnit=document.getElementById('qty-unit'),quantityNote=document.getElementById('qty-note'),firstWeeksEl=document.getElementById('timeline-total-steel'),completeWeeksEl=document.getElementById('timeline-total-erect'),firstDateEl=document.getElementById('timeline-first-date'),completeDateEl=document.getElementById('timeline-complete-date'),driverEl=document.getElementById('timeline-driver'),nextInputEl=document.getElementById('timeline-next-input'),latestReleaseEl=document.getElementById('timeline-latest-release'),latestReleaseNote=document.getElementById('timeline-latest-release-note'),clientInputsEl=document.getElementById('timeline-client-inputs'),planningSnapshot=document.getElementById('timeline-project-qty'),basisList=document.getElementById('timeline-basis-note-list');
+  var currentKey=DEFAULT_KEY,currentStages=[],rowUi=[];
+  function getQuantity(){var value=parseInt(quantityInput?quantityInput.value:'1',10);return Number.isFinite(value)&&value>0?value:1}
+  function getPhase(){return phaseSelect&&phaseSelect.value==='repeat'?'repeat':'first'}
+  function readStages(){return currentStages.map(function(stageData,index){var value=parseFloat(rowUi[index].slider.value||'0');return Object.assign({},stageData,{weeks:Number.isFinite(value)?Math.max(0,Math.ceil(value)):0})})}
+  function getDueBasis(){var checked=basisInputs.find(function(input){return input.checked});return checked?checked.value:'install'}
+  function setDueBasis(value){basisInputs.forEach(function(input){input.checked=input.value===value})}
+  function saveState(stages){try{localStorage.setItem(STORAGE_KEY,JSON.stringify({itemKey:currentKey,phase:getPhase(),qty:getQuantity(),ntp:ntpInput?ntpInput.value:'',dueBy:dueInput?dueInput.value:'',dueBasis:getDueBasis(),stages:stages.map(function(item){return{key:item.key,weeks:item.weeks}})}))}catch(error){}}
+  function loadState(){try{var raw=localStorage.getItem(STORAGE_KEY);return raw?JSON.parse(raw):null}catch(error){return null}}
+  function applySavedStages(saved){if(!Array.isArray(saved))return;saved.forEach(function(item){if(!item||typeof item.key!=='string')return;var index=currentStages.findIndex(function(candidate){return candidate.key===item.key});if(index<0||!rowUi[index])return;var min=parseFloat(rowUi[index].slider.min||'0'),max=parseFloat(rowUi[index].slider.max||'999'),value=Math.ceil(parseFloat(item.weeks));if(!Number.isFinite(value))return;rowUi[index].slider.value=String(Math.max(min,Math.min(max,value)))})}
+  function renderClientInputs(entries,start){if(!clientInputsEl)return;clientInputsEl.innerHTML='';entries.forEach(function(entry){var item=document.createElement('li');item.textContent=entry.input+' — by week '+formatWeeks(entry.week)+(start?' ('+formatDate(addWeeks(start,entry.week))+')':'');clientInputsEl.appendChild(item)})}
+  function renderPlanningBasis(){
+    var product=getProduct(currentKey),quantity=getQuantity(),firstLot=Math.min(quantity,product.firstLot),balance=Math.max(0,quantity-firstLot),phase=getPhase();
+    if(quantityUnit)quantityUnit.textContent=product.unit;
+    if(quantityNote)quantityNote.textContent='First release '+firstLot+'; balance assumption '+product.weeklyRate+' '+product.unit+'/week';
+    if(planningSnapshot){planningSnapshot.innerHTML='';[
+      'Release basis: '+PHASE_LABELS[phase]+'.',
+      'First release lot: '+firstLot+' '+product.unit+'; balance: '+balance+' '+product.unit+'.',
+      'Baseline throughput assumption: '+product.weeklyRate+' '+product.unit+' per calendar week after first release.',
+      product.risk
+    ].forEach(function(text){var item=document.createElement('li');item.textContent=text;planningSnapshot.appendChild(item)})}
+    if(basisList){basisList.innerHTML='';[
+      'Calendar-week planning model; it is not a quotation, production reservation, or confirmed capacity commitment.',
+      phase==='first'?'New-configuration basis includes one technical-closure cycle plus routing, fixture, and first-article readiness.':'Repeat basis requires the same qualified revision, accepted control plan, and reusable route/tooling.',
+      'Material duration assumes normal supplier or service-center availability; mill rolling, special grades, or customer-directed sources can extend it.',
+      'Holiday shutdowns, expedite premiums, transit, site receiving, and customer review delays must be added when applicable.'
+    ].forEach(function(text){var item=document.createElement('li');item.textContent=text;basisList.appendChild(item)})}
+  }
+  function render(){
+    var stages=readStages(),totalWeeks=stages.reduce(function(sum,item){return sum+item.weeks},0),ntp=parseDate(ntpInput?ntpInput.value:''),target=parseDate(dueInput?dueInput.value:''),dueBasis=getDueBasis(),elapsed=0,firstDeliveryWeeks=0,driver={label:'--',weeks:-1},clientEntries=[];
+    stages.forEach(function(stageData,index){var startWeek=elapsed,endWeek=elapsed+stageData.weeks;elapsed=endWeek;if(stageData.weeks>driver.weeks)driver={label:stageData.label,weeks:stageData.weeks};if(stageData.key==='first_release')firstDeliveryWeeks=endWeek;var startPct=totalWeeks>0?(startWeek/totalWeeks)*100:0,widthPct=totalWeeks>0?(stageData.weeks/totalWeeks)*100:0;rowUi[index].bar.style.setProperty('--x',startPct.toFixed(2)+'%');rowUi[index].bar.style.setProperty('--w',widthPct.toFixed(2)+'%');rowUi[index].sliderValue.textContent=formatWeeks(stageData.weeks)+' wks';if(stageData.clientInput&&stageData.weeks>0)clientEntries.push({input:stageData.clientInput,week:startWeek})});
+    if(getQuantity()<=getProduct(currentKey).firstLot||totalWeeks===firstDeliveryWeeks)firstDeliveryWeeks=totalWeeks;
+    var requiredOffset=dueBasis==='install'?totalWeeks:firstDeliveryWeeks,latestRelease=target?addWeeks(target,-requiredOffset):null,scheduleStart=ntp||latestRelease,walk=0;
+    stages.forEach(function(stageData,index){var startWeek=walk,endWeek=startWeek+stageData.weeks;walk=endWeek;rowUi[index].rangeEl.textContent='Week '+formatWeeks(startWeek)+' to '+formatWeeks(endWeek)+(scheduleStart?' ('+formatDate(addWeeks(scheduleStart,startWeek))+' to '+formatDate(addWeeks(scheduleStart,endWeek))+')':'');if(stageData.clientInput&&stageData.weeks>0){rowUi[index].clientInputEl.textContent=stageData.clientInput;rowUi[index].clientDueEl.textContent='By week '+formatWeeks(startWeek)+(scheduleStart?' ('+formatDate(addWeeks(scheduleStart,startWeek))+')':'')}else{rowUi[index].clientInputEl.textContent='No separate client input required.';rowUi[index].clientDueEl.textContent=''}});
+    var nextEntry=null;if(clientEntries.length){if(scheduleStart){var today=new Date();today.setHours(0,0,0,0);nextEntry=clientEntries.find(function(entry){return addWeeks(scheduleStart,entry.week)>=today})||null}else nextEntry=clientEntries[0]}
+    if(firstWeeksEl)firstWeeksEl.textContent=formatWeeks(firstDeliveryWeeks);
+    if(completeWeeksEl)completeWeeksEl.textContent=formatWeeks(totalWeeks);
+    if(firstDateEl)firstDateEl.textContent=ntp?formatDate(addWeeks(ntp,firstDeliveryWeeks)):'calendar weeks from NTP';
+    if(completeDateEl)completeDateEl.textContent=ntp?formatDate(addWeeks(ntp,totalWeeks)):'calendar weeks from NTP';
+    if(driverEl)driverEl.textContent=driver.label;
+    if(nextInputEl)nextInputEl.textContent=nextEntry?'Wk '+formatWeeks(nextEntry.week)+(scheduleStart?' • '+formatDate(addWeeks(scheduleStart,nextEntry.week)):''):scheduleStart?'Confirm current status':'--';
+    if(latestReleaseEl)latestReleaseEl.textContent=latestRelease?formatDate(latestRelease):'--';
+    if(latestReleaseNote)latestReleaseNote.textContent=dueBasis==='install'?'award by this date for production lot complete':'award by this date for first staged delivery';
+    renderClientInputs(clientEntries,scheduleStart);renderPlanningBasis();saveState(stages);
+  }
+  function populateProducts(selected){itemSelect.innerHTML='';Object.keys(PRODUCTS).forEach(function(key){var option=document.createElement('option');option.value=key;option.textContent=PRODUCTS[key].label;itemSelect.appendChild(option)});itemSelect.value=hasProduct(selected)?selected:DEFAULT_KEY}
+  function buildProfile(productKey,savedStages){currentKey=hasProduct(productKey)?productKey:DEFAULT_KEY;currentStages=makeStages(currentKey,getPhase(),getQuantity());rowsHost.innerHTML='';rowUi=currentStages.map(buildRow);rowUi.forEach(function(entry){rowsHost.appendChild(entry.row);entry.slider.addEventListener('input',function(){entry.sliderValue.textContent=formatWeeks(parseFloat(entry.slider.value||'0'))+' wks';render()})});applySavedStages(savedStages);render()}
+  var saved=loadState(),initialKey=saved&&hasProduct(saved.itemKey)?saved.itemKey:DEFAULT_KEY;
+  if(saved&&saved.phase&&phaseSelect)phaseSelect.value=saved.phase;
+  if(ntpInput&&saved&&saved.ntp)ntpInput.value=saved.ntp;
+  if(dueInput&&saved&&saved.dueBy)dueInput.value=saved.dueBy;
+  if(saved&&saved.dueBasis)setDueBasis(saved.dueBasis);
+  if(quantityInput&&saved&&saved.qty)quantityInput.value=String(saved.qty);
+  populateProducts(initialKey);
+  itemSelect.addEventListener('change',function(){buildProfile(itemSelect.value)});
+  if(phaseSelect)phaseSelect.addEventListener('change',function(){buildProfile(currentKey)});
+  if(quantityInput){var quantityTimer;quantityInput.addEventListener('input',function(){clearTimeout(quantityTimer);quantityTimer=setTimeout(function(){buildProfile(currentKey)},250)})}
+  if(ntpInput)ntpInput.addEventListener('change',render);
+  if(dueInput)dueInput.addEventListener('change',render);
+  basisInputs.forEach(function(input){input.addEventListener('change',render)});
+  if(resetButton)resetButton.addEventListener('click',function(){buildProfile(currentKey)});
+  buildProfile(initialKey,saved&&Array.isArray(saved.stages)?saved.stages:null);
+}
+document.addEventListener('DOMContentLoaded',setup);
+})();
+</script>
+<div class="site-footer">Anchor Danly + AWC &mdash; Fabrication &amp; Modular Solutions</div>
+</body>
+</html>
