@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-11-13",
+  "refresh_status": "ok",
+  "source_note": "Official U.S. government material-trade notices and active maritime advisories, checked daily.",
+  "caveat": "Headlines identify public risk signals; they are not forecasts, legal advice, or supplier commitments.",
+  "signals": [
+    {
+      "id": "marad-2026-013",
+      "topic": "maritime",
+      "topic_label": "Maritime Route",
+      "title": "2026-013-Red Sea, Bab el Mandeb Strait, Gulf of Aden, Arabian Sea, and Somali Basin-Houthi Attacks on Commercial Vessels",
+      "published_date": null,
+      "source": "U.S. Maritime Advisory System",
+      "source_url": "https://www.maritime.dot.gov/msci/2026-013-red-sea-bab-el-mandeb-strait-gulf-aden-arabian-sea-and-somali-basin-houthi-attacks",
+      "summary": "Active official U.S. maritime advisory relevant to global freight routes.",
+      "source_type": "official"
+    },
+    {
+      "id": "marad-2026-012",
+      "topic": "maritime",
+      "topic_label": "Maritime Route",
+      "title": "2026-012-Black Sea and Sea of Azov-Military Combat Operations",
+      "published_date": null,
+      "source": "U.S. Maritime Advisory System",
+      "source_url": "https://www.maritime.dot.gov/msci/2026-012-black-sea-and-sea-azov-military-combat-operations",
+      "summary": "Active official U.S. maritime advisory relevant to global freight routes.",
+      "source_type": "official"
+    },
+    {
+      "id": "federal-register-2026-23083",
+      "topic": "material_trade",
+      "topic_label": "Trade + Material",
+      "title": "Stainless Steel Bar From India: Final Results of Antidumping Duty Administrative Review; 2024-2025",
+      "published_date": "2026-11-13",
+      "source": "Federal Register \u00b7 International Trade Administration",
+      "source_url": "https://www.federalregister.gov/documents/2026/11/13/2026-23083/stainless-steel-bar-from-india-final-results-of-antidumping-duty-administrative-review-2024-2025",
+      "summary": "The U.S. Department of Commerce (Commerce) determines that producers and/or exporters subject to this administrative review made sales of stainless steel bar from India at prices below normal value during the period of review (POR)\u2026",
+      "source_type": "official"
+    },
+    {
+      "id": "federal-register-2026-23128",
+      "topic": "energy_supply",
+      "topic_label": "Energy + Supply",
+      "title": "International Energy Agency Meetings",
+      "published_date": "2026-11-13",
+      "source": "Federal Register \u00b7 Energy Department",
+      "source_url": "https://www.federalregister.gov/documents/2026/11/13/2026-23128/international-energy-agency-meetings",
+      "summary": "The Industry Advisory Board (IAB) to the International Energy Agency (IEA) will meet on November 18, 2026, and November 19, 2026, as a hybrid meeting via webinar and in person, in connection with a joint meeting of the IEA's Standing\u2026",
+      "source_type": "official"
+    }
+  ],
+  "source_status": [
+    {
+      "source": "U.S. Maritime Advisory System",
+      "status": "ok",
+      "url": "https://www.maritime.dot.gov/msci-advisories"
+    },
+    {
+      "source": "Federal Register",
+      "topic": "material_trade",
+      "status": "ok",
+      "url": "https://www.federalregister.gov/api/v1/documents.json"
+    },
+    {
+      "source": "Federal Register",
+      "topic": "energy_supply",
+      "status": "ok",
+      "url": "https://www.federalregister.gov/api/v1/documents.json"
+    }
+  ]
+}
